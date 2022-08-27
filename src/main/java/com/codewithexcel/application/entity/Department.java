@@ -1,6 +1,15 @@
 package com.codewithexcel.application.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Department {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long departmentId;
     private String departmentName;
     private String departmentAddress;
@@ -21,19 +30,36 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    private String getDepartmentAddress(){
+    public String getDepartmentAddress(){
         return departmentAddress;
     }
 
-    private void setDepartmentAddress(String departmentAddress){
+    public void setDepartmentAddress(String departmentAddress){
         this.departmentAddress = departmentAddress;
     }
 
-    private String getDepartmentCode(){
+    public String getDepartmentCode(){
         return departmentCode;
     }
-    private void setDepartmentCode(String departmentAddress){
+    public void setDepartmentCode(String departmentAddress){
         this.departmentCode = departmentCode;
+    }
+
+    public Department(long departmentId, String departmentName, String departmentAddress, String departmentCode){
+        this.departmentId = departmentId;
+        this.departmentAddress = departmentAddress;
+        this.departmentName = departmentName;
+        this.departmentCode = departmentCode;
+
+    }
+    @Override
+    public String toString(){
+        return "Department{" +
+                "departmentId=" + departmentId +
+                ", departmentAddress'" + departmentName + '\'' +
+                ", departmentAddress='" + departmentAddress + '\'' +
+                ", departmentCode'" + departmentCode + '\'' +
+                '}';
     }
 }
 
